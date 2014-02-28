@@ -20,6 +20,8 @@ mkdir -p $cache_root
 mkdir -p $buildpack_root
 mkdir -p $build_root/.profile.d
 
+mv $buildpack_root/.buildpacks $build_root
+
 function output_redirect() {
 	if [[ "$slug_file" == "-" ]]; then
 		cat - 1>&2

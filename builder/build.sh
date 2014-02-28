@@ -11,6 +11,7 @@ else
 fi
 
 app_dir=/app
+app_root=/tmp/app
 build_root=/tmp/build
 cache_root=/tmp/cache
 buildpack_root=/tmp/buildpacks
@@ -112,9 +113,9 @@ fi
 ## Produce slug
 
 if [[ -f "$build_root/.slugignore" ]]; then
-	tar --exclude='.git' -X "$build_root/.slugignore" -C $build_root -czf $slug_file . | cat
+	cd /tmp && mv $build_root $app_root && tar --exclude='.git' -X "$build_root/.slugignore" -czf $slug_file ./app | cat
 else
-	tar --exclude='.git' -C $build_root -czf $slug_file . | cat
+	cd /tmp && mv $build_root $app_root && tar --exclude='.git' -czf $slug_file ./app | cat
 fi
   
 if [[ "$slug_file" != "-" ]]; then

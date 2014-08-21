@@ -1,1 +1,1 @@
-https://github.com/ddollar/heroku-buildpack-multi.git
+https://github.com/talenthouse-dev/heroku-buildpack-multi.git
